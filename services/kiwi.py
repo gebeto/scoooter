@@ -4,7 +4,20 @@ import re
 
 
 url_base = "http://service.kiwimobility.com"
-token = "TOKEN"
+
+
+HEADERS = {
+	"Accept-Language": "en-us",
+	"Accept": "application/json, text/plain, */*",
+	"Accept-Encoding": "gzip, deflate",
+}
+
+
+LVIV_LATLON = {
+	"latitude": 49.844711008446126,
+	"longitude": 24.00756043303686,
+	"zoneId": 45,
+}
 
 
 def request_sms(phone_number):
@@ -12,7 +25,7 @@ def request_sms(phone_number):
 	url_request_sms = f"{url_base}/user/sign-with-phone"
 	request = requests.post(
 		url_request_sms,
-		# headers=HEADERS,
+		headers=HEADERS,
 		data=json.dumps({
 			"phoneCountryCode": "380",
 			"phone": phone_number,
@@ -25,7 +38,7 @@ def confirm_sms(id, code):
 	url_confirm_sms = f"{url_base}/user/verify"
 	request = requests.post(
 		url_confirm_sms,
-		# headers=HEADERS,
+		headers=HEADERS,
 		data=json.dumps({
 			"id": id,
 			"authCode": code,
@@ -59,17 +72,11 @@ def available_scooters(token):
 	url_scooters = f"{url_base}/vehicle/search"
 	response = requests.get(
 		url_scooters,
-		params={
-			"latitude": 49.844730516318464,
-			"longitude": 24.007530360235208,
-			"zoneId": 45,
-		},
-		headers={
-			"Accept-Language": "en-us",
-			"Accept": "application/json, text/plain, */*",
-			"Authorization": f"Bearer {token}",
-			"Accept-Encoding": "gzip, deflate",
-		}
+		params=LVIV_LATLON,
+		headers=dict(
+			HEADERS,
+			Authorization=f"Bearer {token}",
+		)
 	)
 	data = response.json()
 	return [to_simple_shape(d) for d in data]
