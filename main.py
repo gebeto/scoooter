@@ -9,9 +9,19 @@ def json_print(data):
 	print(json.dumps(data))
 
 
-token = read_credentials("ewings")
-if not token:
-	token = ewings.login()
-	write_credentials("ewings", token)
+SERVICE = "ewings"
+# SERVICE = "kiwi"
 
-json_print(ewings.available_scooters(token))
+services = {
+	"ewings": ewings,
+	"kiwi": kiwi,
+}
+
+scooter_service = services[SERVICE]
+
+token = read_credentials(SERVICE)
+if not token:
+	token = scooter_service.login()
+	write_credentials(SERVICE, token)
+
+json_print(scooter_service.available_scooters(token))
