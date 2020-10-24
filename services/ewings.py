@@ -2,6 +2,7 @@ import requests
 import json
 
 
+name = "ewings"
 url_base = "https://api.scootapi.com"
 
 

@@ -3,6 +3,7 @@ import json
 import re
 
 
+name = "kiwi"
 url_base = "http://service.kiwimobility.com"
 
 
