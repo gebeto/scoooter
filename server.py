@@ -1,15 +1,17 @@
 from aiohttp import web
 from main import get_all_scooters
 
+
 async def index(request):
-	return web.FileResponse("html/index.html")
+    return web.FileResponse("html/index.html")
+
 
 async def marker(request):
-	return web.FileResponse(f"html/icon-{request.match_info['type']}.svg")
+    return web.FileResponse(f"html/icon-{request.match_info['type']}.svg")
 
 
 async def scooters(request):
-	return web.json_response(get_all_scooters())
+    return web.json_response(get_all_scooters())
 
 
 app = web.Application()

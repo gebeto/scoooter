@@ -53,7 +53,7 @@ def confirm_sms(phone_number, code):
 
 def login():
     phone_number = input("Phone number: ")
-    data = request_sms(phone_number)
+    request_sms(phone_number)
     code = input("Code from SMS: ")
     token = confirm_sms(phone_number, code)
     return token
