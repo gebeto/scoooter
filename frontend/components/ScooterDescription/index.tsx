@@ -1,19 +1,25 @@
 import * as React from 'react';
+import { Drawer, ANCHOR } from "baseui/drawer";
+import { Display4 } from 'baseui/typography';
+
+import { Battery } from './Battery';
+import { ScooterDescriptionListItem } from './ScooterDescriptionListItem';
 
 
-export const ScooterDescription = ({ scooter }: any) => {
+export const ScooterDescription = ({ scooter, handleClose }: any) => {
   if (!scooter) {
     return null;
   }
 
   return (
-    <div>
-      <b>Type: {scooter.type}</b>
-      <br />
+    <Drawer autoFocus isOpen={!!scooter} onClose={handleClose} anchor={ANCHOR.bottom}>
+      <Display4>{scooter.title}</Display4>
+      <Battery value={scooter.battery} />
       <ul>
-        <li>Name: {scooter.title}</li>
-        <li>Battery: {scooter.battery}</li>
+        <ScooterDescriptionListItem title="Type" value={scooter.type} />
+        <ScooterDescriptionListItem title="Name" value={scooter.title} />
+        <ScooterDescriptionListItem title="Battery" value={scooter.battery} />
       </ul>
-    </div>
+    </Drawer>
   );
 }
