@@ -944,6 +944,11 @@
     "@parcel/utils" "^1.11.0"
     physical-cpu-count "^2.0.0"
 
+"@react-leaflet/core@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@react-leaflet/core/-/core-1.0.0.tgz#1c56b435db15e1fae0165409f94dd67fe0ea0a38"
+  integrity sha512-pwJJQjlv6TV2yBmhV+yY1N/fQYhZdQSquBM0t6ODQSG4cEHvl5VoHPYNkgXBBz6EqxFMbS9QGxrB1VcxV4mihQ==
+
 "@rtsao/csstype@2.6.5-forked.0":
   version "2.6.5-forked.0"
   resolved "https://registry.yarnpkg.com/@rtsao/csstype/-/csstype-2.6.5-forked.0.tgz#b5b4e2a07ad83a91874ebf5fabdb73dc8c1632f6"
@@ -984,6 +989,28 @@
   integrity sha512-6KLe6lkILeRwyyy7yG9rULKJ0sXplUsl98MGoCfpteXf9sPWFWWMknDcsvubcpaTdBuxtsLF6HDUwdApZL/xIg==
   dependencies:
     "@types/prop-types" "*"
+    csstype "^3.0.2"
+
+"@types/styletron-engine-atomic@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@types/styletron-engine-atomic/-/styletron-engine-atomic-1.1.0.tgz#aea5f44e946aa4641e576b13048a78e0efebdfc3"
+  integrity sha512-wEU9lwW+sEZ7y8lRmPe2NLNeJzm7AgvK72CVE0iHoT1pyzS90O9APgxaN5E83p4h8ej7wOaS3swBZtvZ08B/LQ==
+  dependencies:
+    "@types/styletron-standard" "*"
+
+"@types/styletron-react@^5.0.2":
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@types/styletron-react/-/styletron-react-5.0.2.tgz#541cebb147ef68e9a8ee75dcff160cf723fed710"
+  integrity sha512-jONPyzz9MRuCB71QYpkRQx4nsjGxLS/GNmudHXs8aeTj8yRHgO9wsXhUAL5uZ8LOENWUN2Gcqh/vNvlbRpfcUA==
+  dependencies:
+    "@types/react" "*"
+    "@types/styletron-standard" "*"
+
+"@types/styletron-standard@*":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@types/styletron-standard/-/styletron-standard-2.0.1.tgz#1a6c071b4320d68945215f85ea65520c2b708866"
+  integrity sha512-yXMFS1um8UeMhVCCmstszWOpQ6xga+xNQGB2mEdl/w8psvti2IvlLkNYj63JNPk3FbdKOdrvl6WeUpbDA3y+uA==
+  dependencies:
     csstype "^3.0.2"
 
 abab@^2.0.0:
@@ -4509,6 +4536,13 @@ react-is@^16.3.2, react-is@^16.8.1, react-is@^16.8.6:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+
+react-leaflet@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/react-leaflet/-/react-leaflet-3.0.0.tgz#bfd27208e5fecd85d176e2041f8dfc0c1823ce5f"
+  integrity sha512-ePv7J+S3XIMY1c357NXhSxMp09L7GUKMUINJEFcpLAfec4FUw6YDqC1SgkNZmMIXkg0IRNJxKHI1qwTnBL7FUQ==
+  dependencies:
+    "@react-leaflet/core" "^1.0.0"
 
 react-lifecycles-compat@^3.0.4:
   version "3.0.4"

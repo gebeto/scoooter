@@ -1,0 +1,2 @@
+heroku container:push web --app scoooters
+heroku container:release web --app scoooters
