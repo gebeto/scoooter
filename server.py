@@ -1,3 +1,4 @@
+import os
 from aiohttp import web
 from main import get_scooters
 
@@ -29,4 +30,4 @@ app.add_routes([web.get('/scooters.json', scooters_all)])
 app.add_routes([web.get('/scooters-{service}.json', scooters_by_service)])
 
 app.add_routes([web.get('/marker-{type}.svg', marker)])
-web.run_app(app, port=5000)
+web.run_app(app, port=os.environ.get("PORT", 5000))

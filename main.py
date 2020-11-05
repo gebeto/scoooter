@@ -11,7 +11,7 @@ def json_print(data):
 
 async def main():
     script, service_type, *rest = sys.argv
-    scooters = get_scooters(service_type)
+    scooters = await get_scooters(service_type)
     json_print(scooters)
 
 
