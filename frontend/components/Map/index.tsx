@@ -13,6 +13,7 @@ function fetchScooters() {
 	return fetch("/scooters.json").then(res => res.json());
 }
 
+const LVIV_CENTER: L.LatLngTuple = [49.8360948918759, 24.025636129081246];
 
 export const Map = (props: any) => {
 	const [scooters, setScooters] = React.useState([]);
@@ -21,16 +22,14 @@ export const Map = (props: any) => {
 		fetchScooters().then(setScooters);
 	}, []);
 
-	const position = [51.505, -0.09] as any;
-
 	return (
 		<MapContainer
 			className="map-container"
-			center={[49.8360948918759, 24.025636129081246]}
-			zoom={12}
+			center={LVIV_CENTER}
+			zoom={13}
 			scrollWheelZoom={false}
 			maxZoom={18}
-			minZoom={12}
+			minZoom={13}
 		>
 			<TileLayer attribution='&copy; Scoooters' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 			{scooters.map((scooter: any, index: number) =>
