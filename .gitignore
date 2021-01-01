@@ -130,3 +130,4 @@ dmypy.json
 
 .credentials-*
 .DS_Store
+node_modules
