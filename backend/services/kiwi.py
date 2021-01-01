@@ -1,6 +1,7 @@
-import requests
 import json
 import re
+
+from .utils import get_json, post_json
 
 
 name = "kiwi"
@@ -21,10 +22,10 @@ LVIV_LATLON = {
 }
 
 
-def request_sms(phone_number):
+async def request_sms(phone_number):
     phone_number = re.sub("^3?8?0?", "", phone_number)
     url_request_sms = f"{url_base}/user/sign-with-phone"
-    request = requests.post(
+    response = await post_json(
         url_request_sms,
         headers=HEADERS,
         data=json.dumps({
@@ -32,12 +33,12 @@ def request_sms(phone_number):
             "phone": phone_number,
         })
     )
-    return request.json()
+    return response
 
 
-def confirm_sms(id, code):
+async def confirm_sms(id, code):
     url_confirm_sms = f"{url_base}/user/verify"
-    request = requests.post(
+    response = await post_json(
         url_confirm_sms,
         headers=HEADERS,
         data=json.dumps({
@@ -45,14 +46,14 @@ def confirm_sms(id, code):
             "authCode": code,
         })
     )
-    return request.json()["token"]
+    return response["token"]
 
 
-def login():
+async def login():
     phone_number = input("Phone number: ")
-    data = request_sms(phone_number)
+    data = await request_sms(phone_number)
     code = input("Code from SMS: ")
-    token = confirm_sms(data["id"], code)
+    token = await confirm_sms(data["id"], code)
     return token
 
 
@@ -69,9 +70,9 @@ def to_simple_shape(scooter):
     }
 
 
-def available_scooters(token):
+async def available_scooters(token):
     url_scooters = f"{url_base}/vehicle/search"
-    response = requests.get(
+    data = await get_json(
         url_scooters,
         params=LVIV_LATLON,
         headers=dict(
@@ -79,5 +80,4 @@ def available_scooters(token):
             Authorization=f"Bearer {token}",
         )
     )
-    data = response.json()
     return [to_simple_shape(d) for d in data]
