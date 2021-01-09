@@ -10,7 +10,7 @@ async def get_json(url, headers=None, **kwargs):
 
 async def post_json(url, headers=None, **kwargs):
     async with aiohttp.ClientSession(headers=headers) as session:
-        async with session.get(url, **kwargs) as r:
+        async with session.post(url, **kwargs) as r:
             return await r.json()
 
 

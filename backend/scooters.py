@@ -14,7 +14,7 @@ scooter_services = {
 async def get_service_scooters(scooter_service):
     token = read_credentials(scooter_service.name)
     if not token:
-        token = scooter_service.login()
+        token = await scooter_service.login()
         write_credentials(scooter_service.name, token)
     scooters = await scooter_service.available_scooters(token)
     return scooters

@@ -16,7 +16,7 @@ def read_credentials(name):
     if no_file_credentials:
         raise Exception(f"Environment variable is required: CREDENTIALS_{name.upper()}")
     try:
-        return open(f".credentials-{name}", "r").read()
+        return open(f".credentials-{name}", "r").read().strip()
     except FileNotFoundError:
         return None
 
