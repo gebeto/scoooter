@@ -9,19 +9,25 @@ import { Map } from './components/Map';
 import { ScooterDescription } from './components/ScooterDescription';
 
 
-const engine = new Styletron();
+export const engine = new Styletron();
+
+export const AppWrapper: React.FC = ({ children }) => (
+  <StyletronProvider value={engine}>
+    <BaseProvider theme={LightTheme}>
+      {children}
+    </BaseProvider>
+  </StyletronProvider>
+);
 
 
 const App = () => {
   const [scooter, setScooter] = React.useState<any>(null);
 
   return (
-    <StyletronProvider value={engine}>
-      <BaseProvider theme={LightTheme}>
-        <ScooterDescription scooter={scooter} handleClose={() => setScooter(null)} />
-        <Map onScooterSelect={setScooter} />
-      </BaseProvider>
-    </StyletronProvider>
+    <AppWrapper>
+      <ScooterDescription scooter={scooter} handleClose={() => setScooter(null)} />
+      <Map onScooterSelect={setScooter} />
+    </AppWrapper>
   );
 }
 

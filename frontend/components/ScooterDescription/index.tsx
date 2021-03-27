@@ -6,7 +6,16 @@ import { Battery } from './Battery';
 import { ScooterDescriptionListItem } from './ScooterDescriptionListItem';
 
 
-export const ScooterDescription = ({ scooter, handleClose }: any) => {
+export type ScooterDescriptionProps = {
+  handleClose: () => void;
+  scooter?: {
+    type: string;
+    title: string;
+    battery: number;
+  };
+}
+
+export const ScooterDescription: React.FC<ScooterDescriptionProps> = ({ scooter, handleClose }) => {
   if (!scooter) {
     return null;
   }

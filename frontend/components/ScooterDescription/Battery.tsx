@@ -7,13 +7,6 @@ const colormap = interpolate(['#e74c3c', '#f1c40f', '#2ecc71']);
 
 
 export const Battery = (props: any) => {
-  // const [ value, setValue ] = React.useState(0);
-  // React.useEffect(() => {
-  //   setInterval(() => {
-  //     setValue(val => val + 1);
-  //   }, 100);
-  // }, [])
-
   return (
     <ProgressBar
       showLabel
