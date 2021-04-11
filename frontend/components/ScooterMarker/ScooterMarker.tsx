@@ -2,12 +2,11 @@ import * as L from 'leaflet';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-// import { styled } from 'baseui';
-
 import { Marker } from 'react-leaflet';
 
 import kiwiIcon from './icon-kiwi.svg';
 import ewingsIcon from './icon-ewings.svg';
+import { Scooter } from '../../entities';
 
 
 const kiwiMarker = L.icon({
@@ -36,7 +35,13 @@ const markersByType: any = {
 }
 
 
-export const ScooterMarker = ({ scooter, onClick }: any) => {
+export type ScooterMarkerProps = {
+	scooter: Scooter;
+	onClick(scooter: Scooter): void;
+};
+
+
+export const ScooterMarker: React.FC<ScooterMarkerProps> = ({ scooter, onClick }) => {
 	const ref = React.useRef(null);
 
 	React.useEffect(() => {

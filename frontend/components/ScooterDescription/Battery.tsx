@@ -6,7 +6,12 @@ import interpolate from 'color-interpolate';
 const colormap = interpolate(['#e74c3c', '#f1c40f', '#2ecc71']);
 
 
-export const Battery = (props: any) => {
+export type BatteryProps = {
+  value: number;
+}
+
+
+export const Battery = (props: BatteryProps) => {
   return (
     <ProgressBar
       showLabel

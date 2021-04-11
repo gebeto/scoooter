@@ -3,10 +3,12 @@ import * as ReactDOM from 'react-dom';
 
 import {Client as Styletron} from 'styletron-engine-atomic';
 import {Provider as StyletronProvider} from 'styletron-react';
-import {LightTheme, BaseProvider, styled} from 'baseui';
+import {LightTheme, BaseProvider} from 'baseui';
 
 import { Map } from './components/Map';
-import { ScooterDescription } from './components/ScooterDescription';
+// import { ScooterDescription } from './components/ScooterDescription';
+import { ScooterDescription } from './components/ScooterDescriptionEvergreen';
+import { Scooter } from './entities';
 
 
 export const engine = new Styletron();
@@ -21,11 +23,11 @@ export const AppWrapper: React.FC = ({ children }) => (
 
 
 const App = () => {
-  const [scooter, setScooter] = React.useState<any>(null);
+  const [scooter, setScooter] = React.useState<Scooter | undefined>(undefined);
 
   return (
     <AppWrapper>
-      <ScooterDescription scooter={scooter} handleClose={() => setScooter(null)} />
+      <ScooterDescription scooter={scooter} handleClose={() => setScooter(undefined)} />
       <Map onScooterSelect={setScooter} />
     </AppWrapper>
   );

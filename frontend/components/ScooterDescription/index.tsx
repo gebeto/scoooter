@@ -4,15 +4,12 @@ import { Display4 } from 'baseui/typography';
 
 import { Battery } from './Battery';
 import { ScooterDescriptionListItem } from './ScooterDescriptionListItem';
+import { Scooter } from '../../entities';
 
 
 export type ScooterDescriptionProps = {
   handleClose: () => void;
-  scooter?: {
-    type: string;
-    title: string;
-    battery: number;
-  };
+  scooter?: Scooter;
 }
 
 export const ScooterDescription: React.FC<ScooterDescriptionProps> = ({ scooter, handleClose }) => {

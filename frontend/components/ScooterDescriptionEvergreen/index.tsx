@@ -1,19 +1,16 @@
 import * as React from 'react';
 
-import { SideSheet, Button, Paragraph, Position, Menu, CornerDialog } from 'evergreen-ui';
+import { Dialog, Button, Paragraph, Position, Menu } from 'evergreen-ui';
 import { Drawer, ANCHOR } from "baseui/drawer";
 import { Display4 } from 'baseui/typography';
 
 import { ScooterDescriptionListItem } from './ScooterDescriptionListItem';
+import { Scooter } from '../../entities';
 
 
 export type ScooterDescriptionProps = {
   handleClose: () => void;
-  scooter?: {
-    type: string;
-    title: string;
-    battery: number;
-  };
+  scooter?: Scooter;
 }
 
 export const ScooterDescription: React.FC<ScooterDescriptionProps> = ({ scooter, handleClose }) => {
@@ -22,10 +19,10 @@ export const ScooterDescription: React.FC<ScooterDescriptionProps> = ({ scooter,
   }
 
   return (
-      <CornerDialog
-        title={scooter.title}
-        // position={Position.BOTTOM}
+      <Dialog
         isShown={!!scooter}
+        title={scooter.title}
+        position={Position.BOTTOM}
         onCloseComplete={handleClose}
       >
         <Menu>
@@ -39,7 +36,7 @@ export const ScooterDescription: React.FC<ScooterDescriptionProps> = ({ scooter,
             <Menu.Item intent="danger">Delete...</Menu.Item>
           </Menu.Group> */}
         </Menu>
-      </CornerDialog>
+      </Dialog>
   );
 
   // return (
