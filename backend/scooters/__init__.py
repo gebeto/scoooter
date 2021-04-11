@@ -1,7 +1,7 @@
 import itertools
 import asyncio
 
-from services import ewings, kiwi
+from . import ewings, kiwi
 from config import read_credentials, write_credentials
 
 
