@@ -18,16 +18,16 @@
     "@storybook/addon-essentials": "^6.1.21",
     "@storybook/addon-links": "^6.1.21",
     "@storybook/react": "^6.1.21",
-    "babel-loader": "^8.2.2",
-    "parcel-bundler": "^1.12.4",
-    "typescript": "^4.0.5"
-  },
-  "dependencies": {
     "@types/leaflet": "^1.5.19",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
     "@types/styletron-engine-atomic": "^1.1.0",
     "@types/styletron-react": "^5.0.2",
+    "babel-loader": "^8.2.2",
+    "parcel-bundler": "^1.12.4",
+    "typescript": "^4.0.5"
+  },
+  "dependencies": {
     "baseui": "^9.104.0",
     "color-interpolate": "^1.0.5",
     "evergreen-ui": "^5.1.2",

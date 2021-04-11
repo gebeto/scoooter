@@ -6,8 +6,7 @@ import {Provider as StyletronProvider} from 'styletron-react';
 import {LightTheme, BaseProvider} from 'baseui';
 
 import { Map } from './components/Map';
-// import { ScooterDescription } from './components/ScooterDescription';
-import { ScooterDescription } from './components/ScooterDescriptionEvergreen';
+import { ScooterDescription } from './components/ScooterDescription';
 import { Scooter } from './entities';
 
 

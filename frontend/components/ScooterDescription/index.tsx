@@ -1,5 +1,15 @@
 import * as React from 'react';
 import { Drawer, ANCHOR } from "baseui/drawer";
+import {
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  ModalButton,
+  SIZE,
+  ROLE,
+} from "baseui/modal";
+import { KIND as ButtonKind } from "baseui/button";
 import { Display4 } from 'baseui/typography';
 
 import { Battery } from './Battery';
@@ -18,14 +28,30 @@ export const ScooterDescription: React.FC<ScooterDescriptionProps> = ({ scooter,
   }
 
   return (
-    <Drawer autoFocus isOpen={!!scooter} onClose={handleClose} anchor={ANCHOR.bottom}>
-      <Display4>{scooter.title}</Display4>
-      <Battery value={scooter.battery} />
-      <ul>
-        <ScooterDescriptionListItem title="Type" value={scooter.type} />
-        <ScooterDescriptionListItem title="Name" value={scooter.title} />
-        <ScooterDescriptionListItem title="Battery" value={scooter.battery} />
-      </ul>
-    </Drawer>
+    <Modal
+      onClose={() => handleClose()}
+      closeable
+      isOpen={true}
+      animate
+      autoFocus
+      size={SIZE.default}
+      role={ROLE.alertdialog}
+    >
+      <ModalHeader>{scooter.type} | {scooter.title}</ModalHeader>
+      <ModalBody>
+        <ul>
+          <ScooterDescriptionListItem title="Type" value={scooter.type} />
+          <ScooterDescriptionListItem title="Name" value={scooter.title} />
+          <ScooterDescriptionListItem title="Battery" value={`${scooter.battery}%`} />
+        </ul>
+        <Battery value={scooter.battery} />
+      </ModalBody>
+      {/* <ModalFooter>
+        <ModalButton size="mini">
+          Close
+        </ModalButton>
+      </ModalFooter> */}
+    </Modal>
   );
 }
+

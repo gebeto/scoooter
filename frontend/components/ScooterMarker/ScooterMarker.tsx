@@ -1,6 +1,5 @@
 import * as L from 'leaflet';
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
 
 import { Marker } from 'react-leaflet';
 
