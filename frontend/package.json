@@ -1,41 +1,78 @@
 {
-  "name": "frontend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "parcel watch --public-url='.' index.html",
-    "build": "parcel build --public-url='.' index.html",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@babel/core": "^7.13.13",
-    "@storybook/addon-actions": "^6.1.21",
-    "@storybook/addon-essentials": "^6.1.21",
-    "@storybook/addon-links": "^6.1.21",
-    "@storybook/react": "^6.1.21",
-    "@types/leaflet": "^1.5.19",
-    "@types/react": "^17.0.3",
-    "@types/react-dom": "^17.0.3",
-    "@types/styletron-engine-atomic": "^1.1.0",
-    "@types/styletron-react": "^5.0.2",
-    "babel-loader": "^8.2.2",
-    "parcel-bundler": "^1.12.4",
-    "typescript": "^4.0.5"
+  "name": "frontend-cra",
+  "version": "0.1.0",
+  "proxy": "http://localhost:5000",
+  "private": true,
+  "resolutions": {
+    "babel-loader": "8.1.0"
   },
   "dependencies": {
-    "baseui": "^9.104.0",
+    "@headlessui/react": "^1.0.0",
+    "@tailwindcss/postcss7-compat": "^2.1.0",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15",
+    "@types/leaflet": "^1.7.0",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "autoprefixer": "^9.8.6",
     "color-interpolate": "^1.0.5",
-    "evergreen-ui": "^5.1.2",
+    "craco": "^0.0.3",
     "leaflet": "^1.7.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-leaflet": "^3.0.0",
-    "styletron-engine-atomic": "^1.4.6",
-    "styletron-react": "^6.0.1"
+    "postcss": "^7.0.35",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-leaflet": "^3.1.0",
+    "react-scripts": "4.0.3",
+    "react-use": "^17.2.3",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.0",
+    "typescript": "^4.1.2",
+    "web-vitals": "^1.0.1"
+  },
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "craco eject",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^6.2.8",
+    "@storybook/addon-essentials": "^6.2.8",
+    "@storybook/addon-links": "^6.2.8",
+    "@storybook/node-logger": "^6.2.8",
+    "@storybook/preset-create-react-app": "^3.1.7",
+    "@storybook/react": "^6.2.8"
   }
 }

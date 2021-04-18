@@ -3,8 +3,9 @@ import 'leaflet/dist/leaflet.css';
 import * as React from 'react';
 
 import { MapContainer, TileLayer } from 'react-leaflet';
-import { Scooter } from '../../entities';
-import { ScooterMarker, ScooterMarkerProps } from '../ScooterMarker/';
+import { Scooter } from '../../entitites/Scooter';
+import { ScooterMarker } from '../ScooterMarker';
+import { ScooterMarkerProps } from '../ScooterMarker';
 
 import './styles.css';
 

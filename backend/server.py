@@ -4,7 +4,7 @@ from main import get_scooters
 
 
 async def index(request):
-    return web.FileResponse("frontend/dist/index.html")
+    return web.FileResponse("frontend/build/index.html")
 
 
 async def scooters_all(request):
@@ -25,5 +25,7 @@ app.add_routes([web.get('/', index)])
 app.add_routes([web.get('/scooters.json', scooters_all)])
 app.add_routes([web.get('/scooters-{service}.json', scooters_by_service)])
 
-app.add_routes([web.static('/', 'frontend/dist')])
+if os.path.exists('frontend/build'):
+    app.add_routes([web.static('/', 'frontend/build')])
+
 web.run_app(app, port=os.environ.get("PORT", 5000))

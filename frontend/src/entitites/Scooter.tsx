@@ -1,5 +1,10 @@
+export enum ScooterType {
+    kiwi = "kiwi",
+    ewings = "ewings",
+}
+
 export type Scooter = {
-    type: "kiwi" | "ewings",
+    type: ScooterType,
     id: string | number,
     title: string,
     battery: number,

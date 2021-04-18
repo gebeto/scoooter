@@ -1,19 +1,11 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { AppWrapper } from '../../index';
 import { Battery } from './Battery';
 
 export default {
   title: 'Scooter/Battery',
   component: Battery,
-  decorators: [
-    (Story) => (
-      <AppWrapper>
-        <Story />
-      </AppWrapper>
-    )
-  ]
 } as Meta;
 
 const Template: Story<any> = (args) => <Battery {...args} />;
