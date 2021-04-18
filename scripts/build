@@ -1,1 +1,2 @@
-docker build -t scoooters --no-cache .
+# docker build -t scoooters --no-cache .
+docker build -t scoooters $@ .
