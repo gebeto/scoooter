@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { ScootersMap, ScootersMapProps } from './ScootersMap';
+import { ScootersMap, ScootersMapProps } from './index';
 import { ScooterType } from '../../entitites/Scooter';
 
 

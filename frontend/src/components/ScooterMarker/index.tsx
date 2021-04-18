@@ -36,17 +36,17 @@ const markersByType: any = {
 
 export type ScooterMarkerProps = {
     scooter: Scooter;
-    onClick(scooter: Scooter): void;
+    onSelect: (scooter: Scooter) => void;
 };
 
 
-export const ScooterMarker: React.FC<ScooterMarkerProps> = ({ scooter, onClick }) => {
+export const ScooterMarker: React.FC<ScooterMarkerProps> = ({ scooter, onSelect }) => {
     const ref = React.useRef(null);
 
     React.useEffect(() => {
         if (!ref.current) return;
         (ref.current as any).addEventListener('click', () => {
-            onClick(scooter);
+            onSelect(scooter);
         });
     }, [ref.current]); // eslint-disable-line react-hooks/exhaustive-deps
 
