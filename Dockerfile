@@ -2,7 +2,7 @@ FROM node:12-alpine as frontend
 WORKDIR /app
 COPY ./frontend/yarn.lock yarn.lock
 COPY ./frontend/package.json package.json
-RUN yarn
+RUN yarn install --production
 COPY ./frontend .
 RUN yarn build
 

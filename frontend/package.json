@@ -1,22 +1,30 @@
 {
-  "name": "frontend-cra",
+  "name": "frontend",
   "version": "0.1.0",
   "proxy": "http://localhost:5000",
   "private": true,
   "resolutions": {
     "babel-loader": "8.1.0"
   },
-  "dependencies": {
-    "@headlessui/react": "^1.0.0",
-    "@tailwindcss/postcss7-compat": "^2.1.0",
+  "devDependencies": {
+    "@storybook/addon-actions": "^6.2.8",
+    "@storybook/addon-essentials": "^6.2.8",
+    "@storybook/addon-links": "^6.2.8",
+    "@storybook/node-logger": "^6.2.8",
+    "@storybook/preset-create-react-app": "^3.1.7",
+    "@storybook/react": "^6.2.8",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
+    "@testing-library/user-event": "^12.1.10"
+  },
+  "dependencies": {
     "@types/jest": "^26.0.15",
     "@types/leaflet": "^1.7.0",
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "@headlessui/react": "^1.0.0",
+    "@tailwindcss/postcss7-compat": "^2.1.0",
     "autoprefixer": "^9.8.6",
     "color-interpolate": "^1.0.5",
     "craco": "^0.0.3",
@@ -26,7 +34,6 @@
     "react-dom": "^17.0.2",
     "react-leaflet": "^3.1.0",
     "react-scripts": "4.0.3",
-    "react-use": "^17.2.3",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.0",
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
@@ -66,13 +73,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@storybook/addon-actions": "^6.2.8",
-    "@storybook/addon-essentials": "^6.2.8",
-    "@storybook/addon-links": "^6.2.8",
-    "@storybook/node-logger": "^6.2.8",
-    "@storybook/preset-create-react-app": "^3.1.7",
-    "@storybook/react": "^6.2.8"
   }
 }
