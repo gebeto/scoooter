@@ -10,12 +10,6 @@ export type ModalProps = {
 
 
 export const Modal: React.FC<ModalProps> = ({ open, onClose, title, children }) => {
-    // const [open, setOpen] = React.useState(_open);
-
-    // function onClose() {
-    //     setOpen(false);
-    // }
-
     return (
         <Transition show={open} as={React.Fragment}>
             <Dialog

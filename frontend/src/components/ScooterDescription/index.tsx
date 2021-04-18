@@ -12,10 +12,6 @@ export type ScooterDescriptionProps = {
 }
 
 export const ScooterDescription: React.FC<ScooterDescriptionProps> = ({ scooter, handleClose }) => {
-  // if (!scooter) {
-  //   return null;
-  // }
-
   return (
     <Modal
       open={!!scooter}
