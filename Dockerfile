@@ -1,13 +1,15 @@
-FROM node:10-alpine as frontend
+FROM node:12-alpine as frontend
 WORKDIR /app
-COPY ./frontend /app
-RUN npm install
-RUN npm run build
+COPY ./frontend/yarn.lock yarn.lock
+COPY ./frontend/package.json package.json
+RUN yarn
+COPY ./frontend .
+RUN yarn build
 
 
 FROM python:3.9
 WORKDIR /app
 COPY ./backend /app
 RUN pip install -r requirements.txt
-COPY --from=frontend /app/dist frontend/dist
+COPY --from=frontend /app/build frontend/build
 CMD python server.py
