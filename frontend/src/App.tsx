@@ -4,12 +4,18 @@ import { ScootersMap } from './components/ScootersMap';
 import { ScooterDescription } from './components/ScooterDescription';
 import { Scooter } from './entitites/Scooter';
 
+
 export const LVIV_CENTER: L.LatLngTuple = [49.8360948918759, 24.025636129081246];
+
 
 export async function fetchScooters() {
   const response = await fetch("/scooters.json");
-  const scooters = await response.json() as Scooter[];
-  return scooters;
+  try {
+    return await response.json() as Scooter[];
+  } catch(e) {
+    console.error(e);
+  }
+  return [];
 }
 
 

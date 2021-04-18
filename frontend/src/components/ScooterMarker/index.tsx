@@ -3,10 +3,21 @@ import React from 'react';
 
 import { Marker } from 'react-leaflet';
 
+import locationIcon from './icon-location.svg';
 import kiwiIcon from './icon-kiwi.svg';
 import ewingsIcon from './icon-ewings.svg';
 import { Scooter } from '../../entitites/Scooter';
 
+
+export const locationMarker = L.icon({
+    iconUrl: locationIcon,
+    iconSize: [34, 34],
+    iconAnchor: [17, 34],
+    popupAnchor: [0, 0],
+    // shadowUrl: 'my-icon-shadow.png',
+    // shadowSize: [68, 95],
+    // shadowAnchor: [22, 94]
+});
 
 const kiwiMarker = L.icon({
     iconUrl: kiwiIcon,

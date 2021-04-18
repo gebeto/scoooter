@@ -1,10 +1,10 @@
-import * as L from 'leaflet';
+import React from 'react';
+import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import * as React from 'react';
 
-import { MapContainer, TileLayer } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import { Scooter } from '../../entitites/Scooter';
-import { ScooterMarker } from '../ScooterMarker';
+import { locationMarker, ScooterMarker } from '../ScooterMarker';
 
 import './styles.css';
 
@@ -17,8 +17,16 @@ export type ScootersMapProps = {
 
 
 export const ScootersMap: React.FC<ScootersMapProps> = ({ scooters, center, onScooterSelect }) => {
+    const [location, setLocation] = React.useState<L.LatLng>();
+
     return (
         <MapContainer
+            whenCreated={(map) => {
+                map.on('locationfound', (e) => {
+                    setLocation(e.latlng);
+                });
+                map.locate({ setView: true, maxZoom: 16 });
+            }}
             className="map-container"
             center={center}
             zoom={13}
@@ -27,6 +35,7 @@ export const ScootersMap: React.FC<ScootersMapProps> = ({ scooters, center, onSc
             minZoom={13}
         >
             <TileLayer attribution='&copy; Scoooters' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+            {location && <Marker icon={locationMarker} position={location} />}
             {scooters.map((scooter, index: number) =>
                 <ScooterMarker key={index} scooter={scooter} onSelect={onScooterSelect} />
             )}
