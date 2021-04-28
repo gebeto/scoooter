@@ -12,4 +12,5 @@ WORKDIR /app
 COPY ./backend /app
 RUN pip install -r requirements.txt
 COPY --from=frontend /app/build frontend/build
-CMD python server.py
+# CMD python server_fastapi.py
+CMD uvicorn server_fastapi:app --host=0.0.0.0 --port=${PORT:-5000}

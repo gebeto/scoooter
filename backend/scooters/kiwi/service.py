@@ -3,7 +3,8 @@ from .utils import LVIV_LATLON, HEADERS, get_json, url_base
 
 def to_simple_shape(scooter):
     return {
-        "type": "kiwi",
+        "service": "kiwi",
+        "type": "scooter",
         "id": scooter["id"],
         "title": scooter["name"],
         "battery": scooter["power"],

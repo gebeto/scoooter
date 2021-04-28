@@ -2,5 +2,6 @@ docker run -it \
 	-p 5000:5000 \
 	-e CREDENTIALS_EWINGS=${CREDENTIALS_EWINGS} \
 	-e CREDENTIALS_KIWI=${CREDENTIALS_KIWI} \
+	-e CREDENTIALS_BOLT=${CREDENTIALS_BOLT} \
 	-v $(pwd)/frontend/dist:/app/frontend/dist \
 	scoooters

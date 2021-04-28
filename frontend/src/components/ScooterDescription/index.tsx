@@ -18,7 +18,7 @@ export const ScooterDescription: React.FC<ScooterDescriptionProps> = ({ open, sc
     <Modal
       open={open}
       onClose={handleClose}
-      title={scooter ? `${scooter.type} | ${scooter.title}` : ''}
+      title={scooter ? `${scooter.service} | ${scooter.title}` : ''}
     >
       <div className="right-0 w-100 mt-2 bg-white divide-y divide-gray-100 rounded-md focus:outline-none" role="menu">
         <div className="px-1 py-1 " role="none">
