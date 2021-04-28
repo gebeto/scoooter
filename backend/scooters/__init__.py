@@ -1,13 +1,14 @@
 import itertools
 import asyncio
 
-from . import ewings, kiwi
+from . import ewings, kiwi, bolt
 from config import read_credentials, write_credentials
 
 
 scooter_services = {
     ewings.name: ewings,
     kiwi.name: kiwi,
+    bolt.name: bolt,
 }
 
 
@@ -30,7 +31,7 @@ async def get_all_scooters():
     return scooters
 
 
-async def get_scooters(service_type):
+async def get_scooters(service_type="all"):
     if service_type == "all":
         scooters = await get_all_scooters()
     else:

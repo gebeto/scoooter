@@ -6,6 +6,7 @@ from scooters import get_scooters
 
 
 def json_print(data):
+    # json.dump(data, open("s.json", "w"), indent=4)
     print(json.dumps(data))
 
 
