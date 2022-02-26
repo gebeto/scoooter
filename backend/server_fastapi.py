@@ -44,7 +44,7 @@ async def scooters_all():
         "service": "ewings",
         "type": "scooter",
         "id": "test",
-        "title": "Dummy item",
+        "title": "Some Dummy Item",
         "battery": 68,
         "location": {
             "lat": 49.8360948918759,
