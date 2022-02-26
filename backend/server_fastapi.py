@@ -40,7 +40,21 @@ async def index():
 
 @app.get("/scooters.json", response_model=List[Scooter])
 async def scooters_all():
-    return await get_scooters("all")
+    dummy = [{
+        "service": "ewings",
+        "type": "scooter",
+        "id": "test",
+        "title": "Dummy item",
+        "battery": 68,
+        "location": {
+            "lat": 49.8360948918759,
+            "lon": 24.025636129081246,
+        },
+    }]
+    try:
+        return (await get_scooters("all")) or dummy
+    except:
+        return dummy
 
 
 @app.get("/scooters-{service}.json", response_model=List[Scooter])
