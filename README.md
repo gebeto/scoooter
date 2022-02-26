@@ -1,6 +1,8 @@
 # scoooter
 Scooter sharing aggregator web app. Lviv, Ukraine.
 
+[![Heroku Deploy](https://github.com/gebeto/scoooter/actions/workflows/heroku.yml/badge.svg)](https://github.com/gebeto/scoooter/actions/workflows/heroku.yml)
+
 
 ## Start dev server
 
